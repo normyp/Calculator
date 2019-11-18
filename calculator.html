@@ -17,14 +17,35 @@
     <input type="text" id="sum"> <!-- TODO: Make this an output field-->
 
     <button onclick="sum()">Sum</button>
+    <button onclick="changeColour()">Change Colour</button>
+    <button onclick="toWhite()">To White</button>
 
     <script src="jquery-3.4.1.min.js"></script>
     <script>
+
+    var i = 0;
     
     function sum(){
         var num1 = parseInt($("#num1").val()); 
         var num2 = parseInt($("#num2").val());
         $("#sum").val(num1 + num2);
+    }
+
+    function changeColour(){
+        var arrayOfColours = ["red", "blue", "yellow", "green", "pink", "orange"];
+        $("#num1").css("background-color", arrayOfColours[i]);
+        $("#num2").css("background-color", arrayOfColours[i]);
+        i++;
+        if (i >= arrayOfColours.length)
+        {
+            i = 0;
+        }
+    }
+
+    function toWhite(){
+        $("#num1").css("background-color", "white");
+        $("#num2").css("background-color", "white");
+        
     }
 
     </script>  

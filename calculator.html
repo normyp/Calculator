@@ -10,60 +10,23 @@
     </style>
 </head>
 <body>
-    <a href="http://jquery.com/">jQuery</a>
+    <!--<a href="http://jquery.com/">jQuery</a>-->
+
+    <input type="text" id="num1" value="5">
+    <input type="text" id="num2" value="4">
+    <input type="text" id="sum"> <!-- TODO: Make this an output field-->
+
+    <button onclick="sum()">Sum</button>
+
     <script src="jquery-3.4.1.min.js"></script>
     <script>
-
-    function tableCreate() {
-      var body = document.body, tbl = document.createElement('table');
-      tbl.style.width = '150px';
-      tbl.style.border = '2px solid black';
-      var n = 1;
-      for (var i = 0; i < n; i++) {
-        var tr = tbl.insertRow();
-        var tg = tr.insertCell(0); 
-        var td = tr.insertCell(0);
-        var tf = tr.insertCell(0);
-        var input = document.createElement('input');
-        input.name = "input-a" + i;
-        input.id = "input-a" + i;
-        input.value = "";
-        var clone = input.cloneNode();
-        clone.name = "input-b" + i;
-        clone.id = "input-b" + i;
-        var clone2 = input.cloneNode();
-        clone2.name = "input-c" + i;
-        clone2.id = "input-c" + i;
-        tg.appendChild(clone2);
-        td.appendChild(clone);
-        tf.appendChild(input);
-        tg.style.border = '2px solid black';
-        td.style.border = '2px solid black';
-        tf.style.border = '2px solid black';
-      }
-      var form = document.createElement("form");
-      form.appendChild(tbl);
-      body.appendChild(form);
-      var submit = document.createElement("input");
-      submit.type = "submit";
-      form.appendChild(submit)
+    
+    function sum(){
+        var num1 = parseInt($("#num1").val()); 
+        var num2 = parseInt($("#num2").val());
+        $("#sum").val(num1 + num2);
     }
-    tableCreate();     
- 
-    // Your code goes here.
-    $( document ).ready(function() {
-     $( "a" ).addClass( "test" );  
-     $( "a" ).click(function( event ) {
 
-        alert( "As you can see, the link no longer took you to jquery.com" );
- 
-        event.preventDefault();
-
-
-        });
-
-    });
- 
-    </script>
+    </script>  
 </body>
 </html>

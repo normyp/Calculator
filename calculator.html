@@ -12,10 +12,23 @@
 <body>
     <!--<a href="http://jquery.com/">jQuery</a>-->
 
-    <input type="text" id="num1" value="5">
-    <input type="text" id="num2" value="4">
+    <input type="text" id="num1" value="">
+    <input type="text" id="num2" value="">
     <input type="text" id="sum"> <!-- TODO: Make this an output field-->
 
+    <br> </br> <input type="button" value=1 onclick="addNumber(this.value)"> 
+    <input type="button" value=2 onclick="addNumber(this.value)"> 
+    <input type="button" value=3 onclick="addNumber(this.value)"><br> </br> 
+    <input type="button" value=4 onclick="addNumber(this.value)">  <!-- change -->
+    <input type="button" value=5 onclick="addNumber(this.value)"> 
+    <input type="button" value=6 onclick="addNumber(this.value)">
+    <br> </br>
+    <input type="button" value=7 onclick="addNumber(this.value)"> 
+    <input type="button" value=8 onclick="addNumber(this.value)"> 
+    <input type="button" value=9 onclick="addNumber(this.value)">
+     <br> </br> 
+     <input type="button" value=0 onclick="addNumber(this.value)">
+     <br> </br>
     <button onclick="sum()">Sum</button>
     <button onclick="changeColour()">Change Colour</button>
     <button onclick="toWhite()">To White</button>
@@ -35,6 +48,7 @@
         var arrayOfColours = ["red", "blue", "yellow", "green", "pink", "orange"];
         $("#num1").css("background-color", arrayOfColours[i]);
         $("#num2").css("background-color", arrayOfColours[i]);
+        $("#sum").css("background-color", arrayOfColours[i]);
         i++;
         if (i >= arrayOfColours.length)
         {
@@ -45,7 +59,12 @@
     function toWhite(){
         $("#num1").css("background-color", "white");
         $("#num2").css("background-color", "white");
-        
+        $("#sum").css("background-color", "white");
+    }
+
+    function addNumber(element)
+    {
+        document.getElementById("num1").value += element;
     }
 
     </script>  

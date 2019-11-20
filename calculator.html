@@ -12,8 +12,8 @@
 <body>
     <!--<a href="http://jquery.com/">jQuery</a>-->
 
-    <input type="text" id="num1" value="">
-    <input type="text" id="num2" value="">
+    <input type="text" id="num1" value="" size="50">
+    <!--<input type="text" id="num2" value="">-->
     <input type="text" id="sum"> <!-- TODO: Make this an output field-->
 
     <br> </br> <input type="button" value=1 onclick="addNumber(this.value)"> 
@@ -30,7 +30,8 @@
      <input type="button" value=0 onclick="addNumber(this.value)">
      <br> </br>
     <button onclick="sum()">Sum</button>
-    <input type="button" value=+ onclick="change(this.value)">
+    <button onclick="checkValues()">Check Values</button>
+    <input type="button" value=+ onclick= "addNumToArr()">
     <button onclick="changeColour()">Change Colour</button>
     <button onclick="toWhite()">To White</button>
 
@@ -42,11 +43,16 @@
     var changed = false;
 
     var arrayOfNums = ["num1", "num2"];
+    var arrayOfValues = [];
     
     function sum(){
-        var num1 = parseInt($("#num1").val()); 
-        var num2 = parseInt($("#num2").val());
-        $("#sum").val(num1 + num2);
+        var sum;
+        for(i = 0; i < arrayOfValues.length; i++)
+        {
+            sum + arrayOfValues[i];
+        }
+        //var num2 = parseInt($("#num2").val());
+        $("#sum").val(sum);
     }
 
     function changeColour(){
@@ -70,12 +76,26 @@
     function change(element)
     {
         changed = true;
-        if(changed && j <= 1){ //Now I want + button in change selected box
+        /*if(changed && j <= 1){ //Now I want + button in change selected box
             j++;
+        }*/
+    }
+
+    function addNumToArr(){
+        //console.log(parseInt($("#num1").val()));
+        var arrNum = parseInt($("#num1").val());
+        arrayOfValues.push(arrNum); //Add number to array of numbers
+        document.getElementById("num1").value = "";//Make text field blank
+    }
+
+    function checkValues(){
+        for(i = 0; i < arrayOfValues.length; i++)
+        {
+            console.log(arrayOfValues[i])
         }
     }
 
-    function addNumber(element)
+    function addNumber(element) 
     {
         document.getElementById(arrayOfNums[j]).value += element;
     }

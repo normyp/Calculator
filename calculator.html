@@ -46,13 +46,13 @@
     var arrayOfValues = [];
     
     function sum(){
-        var sum;
+        var sumArr = 0;
         for(i = 0; i < arrayOfValues.length; i++)
         {
-            sum + arrayOfValues[i];
+            sumArr += arrayOfValues[i];
         }
         //var num2 = parseInt($("#num2").val());
-        $("#sum").val(sum);
+        document.getElementById("sum").value = sumArr;
     }
 
     function changeColour(){
@@ -82,10 +82,12 @@
     }
 
     function addNumToArr(){
+        if(document.getElementById("num1").value != ""){
         //console.log(parseInt($("#num1").val()));
         var arrNum = parseInt($("#num1").val());
         arrayOfValues.push(arrNum); //Add number to array of numbers
         document.getElementById("num1").value = "";//Make text field blank
+        }
     }
 
     function checkValues(){
@@ -96,7 +98,7 @@
     }
 
     function addNumber(element) 
-    {
+    {   
         document.getElementById(arrayOfNums[j]).value += element;
     }
 

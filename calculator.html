@@ -30,6 +30,7 @@
      <input type="button" value=0 onclick="addNumber(this.value)">
      <br> </br>
     <button onclick="sum()">Sum</button>
+    <input type="button" value=+ onclick="change(this.value)">
     <button onclick="changeColour()">Change Colour</button>
     <button onclick="toWhite()">To White</button>
 
@@ -37,6 +38,10 @@
     <script>
 
     var i = 0;
+    var j = 0;
+    var changed = false;
+
+    var arrayOfNums = ["num1", "num2"];
     
     function sum(){
         var num1 = parseInt($("#num1").val()); 
@@ -62,9 +67,17 @@
         $("#sum").css("background-color", "white");
     }
 
+    function change(element)
+    {
+        changed = true;
+        if(changed && j <= 1){ //Now I want + button in change selected box
+            j++;
+        }
+    }
+
     function addNumber(element)
     {
-        document.getElementById("num1").value += element;
+        document.getElementById(arrayOfNums[j]).value += element;
     }
 
     </script>  

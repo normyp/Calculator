@@ -14,7 +14,7 @@
 
     <input type="text" id="num1" value="" size="50">
     <!--<input type="text" id="num2" value="">-->
-    <input type="text" id="sum"> <!-- TODO: Make this an output field-->
+    <input type="text" id="sum" value=""> <!-- TODO: Make this an output field-->
 
     <br> </br> <input type="button" value=1 onclick="addNumber(this.value)"> 
     <input type="button" value=2 onclick="addNumber(this.value)"> 
@@ -29,9 +29,10 @@
      <br> </br> 
      <input type="button" value=0 onclick="addNumber(this.value)">
      <br> </br>
-    <button onclick="sum()">Sum</button>
+    <button onclick="finish()">=</button>
     <button onclick="checkValues()">Check Values</button>
-    <input type="button" value=+ onclick= "addNumToArr()">
+    <button onclick="clearAll()">CE</button>
+    <input type="button" value=+ onclick= "addNumToArr(this)">
     <button onclick="changeColour()">Change Colour</button>
     <button onclick="toWhite()">To White</button>
 
@@ -45,13 +46,31 @@
     var arrayOfNums = ["num1", "num2"];
     var arrayOfValues = [];
     
-    function sum(){
+    function clearAll(){
+        document.getElementById("num1").value = "";
+        document.getElementById("sum").value = "";
+        arrayOfValues = [];
+    }
+
+    function finish(){
+        if(document.getElementById("num1").value != "")
+        {
+            var arrNum = parseInt($("#num1").val());
+            arrayOfValues.push(arrNum);
+            document.getElementById("num1").value = "";
+            equals();
+        }
+    }
+
+    function equals(){
         var sumArr = 0;
         for(i = 0; i < arrayOfValues.length; i++)
         {
+            var x = arrayOfValues[i+1];
+            //sumArr += arrayOfValues[i] + x; // Will be sum = 85+
             sumArr += arrayOfValues[i];
         }
-        //var num2 = parseInt($("#num2").val());
+        //document.getElementById("sum").value = eval(sumArr);
         document.getElementById("sum").value = sumArr;
     }
 
@@ -81,13 +100,17 @@
         }*/
     }
 
-    function addNumToArr(){
+    function addNumToArr(element){
         if(document.getElementById("num1").value != ""){
         //console.log(parseInt($("#num1").val()));
         var arrNum = parseInt($("#num1").val());
         arrayOfValues.push(arrNum); //Add number to array of numbers
-        document.getElementById("num1").value = "";//Make text field blank
+        document.getElementById("num1").value = ""; //Make text field blank
         }
+        /*if(element.value.includes("+"))
+        {
+            arrayOfValues.push("+");
+        }*/
     }
 
     function checkValues(){

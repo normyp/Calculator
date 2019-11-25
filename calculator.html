@@ -33,6 +33,9 @@
     <button onclick="checkValues()">Check Values</button>
     <button onclick="clearAll()">CE</button>
     <input type="button" value=+ onclick= "addNumToArr(this)">
+    <input type="button" value=- onclick= "addNumToArr(this)">
+    <input type="button" value=* onclick= "addNumToArr(this)">
+    <input type="button" value=/ onclick= "addNumToArr(this)">
     <button onclick="changeColour()">Change Colour</button>
     <button onclick="toWhite()">To White</button>
 
@@ -70,8 +73,8 @@
             //sumArr += arrayOfValues[i] + x; // Will be sum = 85+
             sumArr += arrayOfValues[i];
         }
-        //document.getElementById("sum").value = eval(sumArr);
-        document.getElementById("sum").value = sumArr;
+        document.getElementById("sum").value = eval(sumArr);
+        //document.getElementById("sum").value = sumArr;
     }
 
     function changeColour(){
@@ -107,10 +110,22 @@
         arrayOfValues.push(arrNum); //Add number to array of numbers
         document.getElementById("num1").value = ""; //Make text field blank
         }
-        /*if(element.value.includes("+"))
+        if(element.value.includes("+"))
         {
             arrayOfValues.push("+");
-        }*/
+        }
+        if(element.value.includes("-"))
+        {
+            arrayOfValues.push("-");
+        }
+        if(element.value.includes("*"))
+        {
+            arrayOfValues.push("*");
+        }
+        if(element.value.includes("/"))
+        {
+            arrayOfValues.push("/");
+        }
     }
 
     function checkValues(){

@@ -7,21 +7,25 @@
         a.test {
             font-weight: bold;
         }
+        #output{
+            word-break:break-all;
+        }   
+
     </style>
 </head>
 <body>
     <!--<a href="http://jquery.com/">jQuery</a>-->
-
     <input type="text" id="num1" value="" size="50">
     <!--<input type="text" id="num2" value="">-->
-    <input type="text" id="sum" value=""> <!-- TODO: Make this an output field-->
+    <input type="text" disabled="disabled" id="sum" value="">
+    <input type="text" id="output" value="">
 
     <br> </br> <input type="button" value=1 onclick="addNumber(this.value)"> 
     <input type="button" value=2 onclick="addNumber(this.value)"> 
     <input type="button" value=3 onclick="addNumber(this.value)"><br> </br> 
     <input type="button" value=4 onclick="addNumber(this.value)">  <!-- change -->
     <input type="button" value=5 onclick="addNumber(this.value)"> 
-    <input type="button" value=6 onclick="addNumber(this.value)">
+    <input type="button" value=6 onclick="addNumber(this.value)"> &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
     <br> </br>
     <input type="button" value=7 onclick="addNumber(this.value)"> 
     <input type="button" value=8 onclick="addNumber(this.value)"> 
@@ -72,8 +76,10 @@
         for(i = 0; i < arrayOfValues.length; i++)
         {
             sumArr += arrayOfValues[i];
+            document.getElementById("output").value = arrayOfValues;
         }
         document.getElementById("sum").value = eval(sumArr);
+       
         //document.getElementById("sum").value = sumArr;
     }
 
@@ -107,6 +113,7 @@
         if(document.getElementById("num1").value != ""){
             var num = parseInt($("#num1").val());
             document.getElementById("sum").value = num*num;
+            document.getElementById("num1").value = "";
         }
     }
 

@@ -1,56 +1,32 @@
 <!doctype html>
 <html>
-        <style> 
-                input[type=text], select {
-                width: 7.5%;
-                padding: 12px 0px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-                text-align: center;
-            }
-        
-            body {
-                padding-top: 0px; 
-              }
-        
-            .ml-n1 {
-                margin-left: 4 !important;
-            }
-            </style>
-<head>
-    <meta charset="utf-8">
-    <title>Calculator</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <head>
+            <meta charset="utf-8">
+            <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+            <link rel="stylesheet" type="text/css" href="main.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Calculator</title>
 </head>
 <body>
-        <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="#">Home</a>
-                <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
-                  <span class="navbar-toggler-icon">v</span>
-                </button>
-                <div class="collapse navbar-collapse" id="main-navigation">
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a class="nav-link" href="../calculator/calculator.html">Calculator</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="../clock/clock.html">Clock</a>
-                          </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Contact</a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="/open-iconic-master/package.json"></script>
+            <nav class="navbar navbar-light" style="background-color: #4d8b47;">
+                    <a class="navbar-brand" href="../homepage/home.html">Home</a>
+                    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+                      <span class="navbar-toggler-icon"><img src="../open-iconic-master/svg/arrow-bottom.svg" alt="arrow bottom"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="main-navigation">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="../calculator/calculator.html">Calculator</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="../clock/clock.html">Clock</a>
+                              </li>
+                      </ul>
+                    </div>
+                  </nav>
 
     <!--<a href="http://jquery.com/">jQuery</a>-->
     <input type="text" id="num1" value="" size="50">
@@ -61,9 +37,9 @@
     <br> </br> <input type="button" value=1 onclick="addNumber(this.value)"> 
     <input type="button" value=2 onclick="addNumber(this.value)"> 
     <input type="button" value=3 onclick="addNumber(this.value)"><br> </br> 
-    <input type="button" value=4 onclick="addNumber(this.value)">  <!-- change -->
+    <input type="button" value=4 onclick="addNumber(this.value)"> 
     <input type="button" value=5 onclick="addNumber(this.value)"> 
-    <input type="button" value=6 onclick="addNumber(this.value)"> &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <input type="button" value=6 onclick="addNumber(this.value)"> 
     <br> </br>
     <input type="button" value=7 onclick="addNumber(this.value)"> 
     <input type="button" value=8 onclick="addNumber(this.value)"> 
@@ -83,10 +59,8 @@
     <button onclick="changeColour()">Change Colour</button>
     <button onclick="toWhite()">To White</button>
 
-    <script src="jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script>
-
+    $("#sum").css("background-color", "white");
     var i = 0;
     var j = 0;
     var changed = false;
@@ -123,6 +97,17 @@
         //document.getElementById("sum").value = sumArr;
     }
 
+    function sqEquals(){
+        var sumArr = 0;
+        for(i = 0; i < arrayOfValues.length; i++)
+        {
+            sumArr += arrayOfValues[i];
+            document.getElementById("output").value = arrayOfValues;
+        }
+       
+        //document.getElementById("sum").value = sumArr;
+    }
+
     function changeColour(){
         var arrayOfColours = ["red", "blue", "yellow", "green", "pink", "orange"];
         $("#num1").css("background-color", arrayOfColours[i]);
@@ -140,6 +125,7 @@
         $("#num1").css("background-color", "white");
         $("#num2").css("background-color", "white");
         $("#sum").css("background-color", "white");
+        $("#output").css("background-color", "white");
     }
 
     function change(element)
@@ -154,7 +140,10 @@
         if(document.getElementById("num1").value != ""){
             var num = parseInt($("#num1").val());
             document.getElementById("sum").value = num*num;
+            arrayOfValues.push(num);
+            arrayOfValues.push(num);
             document.getElementById("num1").value = "";
+            sqEquals();
         }
     }
 

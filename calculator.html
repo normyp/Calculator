@@ -5,12 +5,22 @@
             <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
             <link rel="stylesheet" type="text/css" href="main.css">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+            body {
+                color:white;
+                margin:20px;
+            }
+            a {
+                color:white; 
+                padding: 10px;
+            }
+            </style>
             <title>Calculator</title>
 </head>
 <body>
         <script src="jquery-3.4.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="/open-iconic-master/package.json"></script>
+        <script src="../open-iconic-master/package.json"></script>
             <nav class="navbar navbar-light" style="background-color: #4d8b47;">
                     <a class="navbar-brand" href="../homepage/home.html">Home</a>
                     <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
@@ -32,7 +42,7 @@
     <input type="text" id="num1" value="" size="50">
     <!--<input type="text" id="num2" value="">-->
     <input type="text" disabled="disabled" id="sum" value="">
-    <input type="text" id="output" value="">
+    <input type="text" disabled="disabled" id="output" value="">
 
     <br> </br> <input type="button" value=1 onclick="addNumber(this.value)"> 
     <input type="button" value=2 onclick="addNumber(this.value)"> 
@@ -61,6 +71,7 @@
 
     <script>
     $("#sum").css("background-color", "white");
+    $("#output").css("background-color", "white");
     var i = 0;
     var j = 0;
     var changed = false;
